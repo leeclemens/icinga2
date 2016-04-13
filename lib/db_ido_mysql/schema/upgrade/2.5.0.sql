@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- -----------------------------------------
 -- upgrade path for Icinga 2.5.0
 --
@@ -101,3 +102,88 @@ CREATE INDEX idx_host_contacts_host_id on icinga_host_contacts(host_id);
 -- set dbversion
 -- -----------------------------------------
 INSERT INTO icinga_dbversion (name, version, create_time, modify_time) VALUES ('idoutils', '1.14.1', NOW(), NOW()) ON DUPLICATE KEY UPDATE version='1.14.1', modify_time=NOW();
+=======
+ALTER TABLE ...blah DEFAULT NULL;??
+
+UPDATE  icinga_acknowledgements           SET  end_time                  = NULL WHERE end_time                  = '0000-00-00 00:00:00';
+UPDATE  icinga_acknowledgements           SET  entry_time                = NULL WHERE entry_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_commenthistory             SET  comment_time              = NULL WHERE comment_time              = '0000-00-00 00:00:00';
+UPDATE  icinga_commenthistory             SET  deletion_time             = NULL WHERE deletion_time             = '0000-00-00 00:00:00';
+UPDATE  icinga_commenthistory              SET  entry_time                = NULL WHERE entry_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_commenthistory              SET  expiration_time           = NULL WHERE expiration_time           = '0000-00-00 00:00:00';
+UPDATE  icinga_comments                    SET  comment_time              = NULL WHERE comment_time              = '0000-00-00 00:00:00';
+UPDATE  icinga_comments                    SET  entry_time                = NULL WHERE entry_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_comments                    SET  expiration_time           = NULL WHERE expiration_time           = '0000-00-00 00:00:00';
+UPDATE  icinga_conninfo                    SET  connect_time              = NULL WHERE connect_time              = '0000-00-00 00:00:00';
+UPDATE  icinga_conninfo                    SET  data_end_time             = NULL WHERE data_end_time             = '0000-00-00 00:00:00';
+UPDATE  icinga_conninfo                    SET  data_start_time           = NULL WHERE data_start_time           = '0000-00-00 00:00:00';
+UPDATE  icinga_conninfo                    SET  disconnect_time           = NULL WHERE disconnect_time           = '0000-00-00 00:00:00';
+UPDATE  icinga_conninfo                    SET  last_checkin_time         = NULL WHERE last_checkin_time         = '0000-00-00 00:00:00';
+UPDATE  icinga_contactnotificationmethods  SET  end_time                  = NULL WHERE end_time                  = '0000-00-00 00:00:00';
+UPDATE  icinga_contactnotificationmethods  SET  start_time                = NULL WHERE start_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_contactnotifications        SET  end_time                  = NULL WHERE end_time                  = '0000-00-00 00:00:00';
+UPDATE  icinga_contactnotifications        SET  start_time                = NULL WHERE start_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_contactstatus               SET  last_host_notification    = NULL WHERE last_host_notification    = '0000-00-00 00:00:00';
+UPDATE  icinga_contactstatus               SET  last_service_notification = NULL WHERE last_service_notification = '0000-00-00 00:00:00';
+UPDATE  icinga_contactstatus               SET  status_update_time        = NULL WHERE status_update_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_customvariablestatus        SET  status_update_time        = NULL WHERE status_update_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_dbversion                   SET  create_time               = NULL WHERE create_time               = '0000-00-00 00:00:00';
+UPDATE  icinga_dbversion                   SET  modify_time               = NULL WHERE modify_time               = '0000-00-00 00:00:00';
+UPDATE  icinga_downtimehistory             SET  actual_end_time           = NULL WHERE actual_end_time           = '0000-00-00 00:00:00';
+UPDATE  icinga_downtimehistory             SET  actual_start_time         = NULL WHERE actual_start_time         = '0000-00-00 00:00:00';
+UPDATE  icinga_downtimehistory             SET  entry_time                = NULL WHERE entry_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_downtimehistory             SET  scheduled_end_time        = NULL WHERE scheduled_end_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_downtimehistory             SET  scheduled_start_time      = NULL WHERE scheduled_start_time      = '0000-00-00 00:00:00';
+UPDATE  icinga_downtimehistory             SET  trigger_time              = NULL WHERE trigger_time              = '0000-00-00 00:00:00';
+UPDATE  icinga_endpointstatus              SET  status_update_time        = NULL WHERE status_update_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_eventhandlers               SET  end_time                  = NULL WHERE end_time                  = '0000-00-00 00:00:00';
+UPDATE  icinga_eventhandlers               SET  start_time                = NULL WHERE start_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_externalcommands            SET  entry_time                = NULL WHERE entry_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_flappinghistory             SET  comment_time              = NULL WHERE comment_time              = '0000-00-00 00:00:00';
+UPDATE  icinga_flappinghistory             SET  event_time                = NULL WHERE event_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_hostchecks                  SET  end_time                  = NULL WHERE end_time                  = '0000-00-00 00:00:00';
+UPDATE  icinga_hostchecks                  SET  start_time                = NULL WHERE start_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  last_check                = NULL WHERE last_check                = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  last_hard_state_change    = NULL WHERE last_hard_state_change    = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  last_notification         = NULL WHERE last_notification         = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  last_state_change         = NULL WHERE last_state_change         = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  last_time_down            = NULL WHERE last_time_down            = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  last_time_unreachable     = NULL WHERE last_time_unreachable     = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  last_time_up              = NULL WHERE last_time_up              = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  next_check                = NULL WHERE next_check                = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  next_notification         = NULL WHERE next_notification         = '0000-00-00 00:00:00';
+UPDATE  icinga_hoststatus                  SET  status_update_time        = NULL WHERE status_update_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_logentries                  SET  entry_time                = NULL WHERE entry_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_logentries                  SET  logentry_time             = NULL WHERE logentry_time             = '0000-00-00 00:00:00';
+UPDATE  icinga_notifications               SET  end_time                  = NULL WHERE end_time                  = '0000-00-00 00:00:00';
+UPDATE  icinga_notifications               SET  start_time                = NULL WHERE start_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_processevents               SET  event_time                = NULL WHERE event_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_programstatus               SET  disable_notif_expire_time = NULL WHERE disable_notif_expire_time = '0000-00-00 00:00:00';
+UPDATE  icinga_programstatus               SET  last_command_check        = NULL WHERE last_command_check        = '0000-00-00 00:00:00';
+UPDATE  icinga_programstatus               SET  last_log_rotation         = NULL WHERE last_log_rotation         = '0000-00-00 00:00:00';
+UPDATE  icinga_programstatus               SET  program_end_time          = NULL WHERE program_end_time          = '0000-00-00 00:00:00';
+UPDATE  icinga_programstatus               SET  program_start_time        = NULL WHERE program_start_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_programstatus               SET  status_update_time        = NULL WHERE status_update_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_scheduleddowntime           SET  actual_start_time         = NULL WHERE actual_start_time         = '0000-00-00 00:00:00';
+UPDATE  icinga_scheduleddowntime           SET  entry_time                = NULL WHERE entry_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_scheduleddowntime           SET  scheduled_end_time        = NULL WHERE scheduled_end_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_scheduleddowntime           SET  scheduled_start_time      = NULL WHERE scheduled_start_time      = '0000-00-00 00:00:00';
+UPDATE  icinga_scheduleddowntime           SET  trigger_time              = NULL WHERE trigger_time              = '0000-00-00 00:00:00';
+UPDATE  icinga_servicechecks               SET  end_time                  = NULL WHERE end_time                  = '0000-00-00 00:00:00';
+UPDATE  icinga_servicechecks               SET  start_time                = NULL WHERE start_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  last_check                = NULL WHERE last_check                = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  last_hard_state_change    = NULL WHERE last_hard_state_change    = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  last_notification         = NULL WHERE last_notification         = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  last_state_change         = NULL WHERE last_state_change         = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  last_time_critical        = NULL WHERE last_time_critical        = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  last_time_ok              = NULL WHERE last_time_ok              = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  last_time_unknown         = NULL WHERE last_time_unknown         = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  last_time_warning         = NULL WHERE last_time_warning         = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  next_check                = NULL WHERE next_check                = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  next_notification         = NULL WHERE next_notification         = '0000-00-00 00:00:00';
+UPDATE  icinga_servicestatus               SET  status_update_time        = NULL WHERE status_update_time        = '0000-00-00 00:00:00';
+UPDATE  icinga_statehistory                SET  state_time                = NULL WHERE state_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_systemcommands              SET  end_time                  = NULL WHERE end_time                  = '0000-00-00 00:00:00';
+UPDATE  icinga_systemcommands              SET  start_time                = NULL WHERE start_time                = '0000-00-00 00:00:00';
+UPDATE  icinga_zonestatus                  SET  status_update_time        = NULL WHERE status_update_time        = '0000-00-00 00:00:00';
+>>>>>>> Convert 0000-00-00 00:00:00 to NULL
