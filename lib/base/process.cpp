@@ -176,6 +176,21 @@ static Value ProcessSpawnImpl(struct msghdr *msgh, const Dictionary::Ptr& reques
 			strcpy(errmsg, "execvpe(");
 			strncat(errmsg, argv[0], sizeof(errmsg) - strlen(errmsg) - 1);
 			strncat(errmsg, ") failed", sizeof(errmsg) - strlen(errmsg) - 1);
+			switch(errno) {
+				// Enhance: errno may be changed by icinga2_execvpe
+				case ENOENT:
+					strncat(errmsg, ". File or interpreter does not exist", sizeof(errmsg) - strlen(errmsg) - 1);
+				case EACCES:
+					strncat(errmsg, ". Permission denied", sizeof(errmsg) - strlen(errmsg) - 1);
+					// Enhance: Perform manual tracing of individual error conditions?
+					// https://linux.die.net/man/2/execve
+					// Search permission is denied on a component of the path prefix of filename or the name of a script interpreter.
+					// The file or a script interpreter is not a regular file.
+					// Execute permission is denied for the file or a script or ELF interpreter.
+					// The file system is mounted noexec.
+				case ENOEXEC:
+					strncat(errmsg, ". Unrecognized header", sizeof(errmsg) - strlen(errmsg) - 1);
+			}
 			errmsg[sizeof(errmsg) - 1] = '\0';
 			perror(errmsg);
 			_exit(128);
